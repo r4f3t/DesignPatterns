@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp1.Factory;
+using System;
 
 namespace ConsoleApp1
 {
@@ -6,7 +7,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var creater = new Creater(new SqlDatabase());
+            creater.Start();
+
+            Console.WriteLine();
+
+            creater = new Creater(new MySqlDatabase());
+            creater.Start();
+
+            Console.ReadLine();
         }
     }
 }
